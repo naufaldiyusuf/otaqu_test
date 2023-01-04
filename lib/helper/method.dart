@@ -33,6 +33,33 @@ class Method {
       getAvailData(destinationId, context, name, error);
     } else {
       error();
+      showAlertDialogError(context);
     }
+  }
+
+  static void showAlertDialogError(BuildContext context) {
+    Widget okButton = TextButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Error"),
+      content: Text("Terjadi kesalahan, silahkan coba lagi."),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 }

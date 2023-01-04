@@ -25,7 +25,7 @@ Widget buttonAll(
         style: GoogleFonts.poppins(
             fontSize: 12),
       ),
-      onPressed:  () {
+      onPressed: cantSubmit ? null : () {
         onPressed();
   },
     ),
